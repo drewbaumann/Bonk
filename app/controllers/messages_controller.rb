@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     user.respond_to_incoming_message(body)
 
     
-    render json: { head :no_content }
+    render status :status
     end
   end
 
