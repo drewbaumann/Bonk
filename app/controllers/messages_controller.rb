@@ -4,8 +4,8 @@ class MessagesController < ApplicationController
     body = params[:Body]
     user.respond_to_incoming_message(body)
 
-    respond_to do |format|
-      format.json { head :no_content }
+    
+    render json: { head :no_content }
     end
   end
 
