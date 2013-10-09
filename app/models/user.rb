@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
     if tested_at.nil?
       date_response(body)
 
-    elsif Phoner::Phone.valid? body
+    elsif body =~ /^[-+]?[0-9]+$/ == 0
       partners_phone_number = Phoner::Phone.parse(body)
       create_sexual_partner(partners_phone_number.to_s)
     elsif body.downcase.include?('positive') 
