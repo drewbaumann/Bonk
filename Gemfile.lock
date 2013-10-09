@@ -52,6 +52,7 @@ GEM
       rails (>= 3, < 5)
     hike (1.2.3)
     i18n (0.6.1)
+    iso_country_codes (0.4.2)
     journey (1.0.4)
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
@@ -164,6 +165,7 @@ DEPENDENCIES
   chronic
   coffee-rails (~> 3.2.1)
   figaro
+  iso_country_codes
   jquery-rails
   pg
   phone

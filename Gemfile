@@ -13,7 +13,7 @@ gem 'redis'
 gem 'figaro'
 gem 'chronic'
 gem 'phone'
-
+gem 'iso_country_codes'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
