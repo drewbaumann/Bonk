@@ -1,5 +1,4 @@
 class MessagesController < ApplicationController
-  include ActionView::Helpers::DateHelper
   def retrieve
     user = User.find_by_phone_number(params[:From])
     body = params[:Body]

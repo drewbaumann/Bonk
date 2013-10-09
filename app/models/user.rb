@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include ActionView::Helpers::DateHelper
   attr_accessible :infected, :phone_number, :tested_at, :user_id
 
   belongs_to :original_partner,
