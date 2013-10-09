@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
   end
 
   def create_sexual_partner(phone_number)
-    sexual_partners << User.find_or_create_by(phone_number: phone_number)    
+    sexual_partners << User.find_or_create_by_phone_number(phone_number)    
   end
 
   def tested_positive
