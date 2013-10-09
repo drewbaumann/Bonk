@@ -6,8 +6,7 @@ class MessagesController < ApplicationController
     body = params[:Body]
     user.respond_to_incoming_message(body)
 
-    
-    render status :status
+    render status :ok
   end
 
 end
