@@ -66,9 +66,9 @@ class User < ActiveRecord::Base
     elsif Phoner::Phone.valid? body
       partners_phone_number = Phoner::Phone.parse(body)
       create_sexual_partner(partners_phone_number.to_s)
-    elsif body.lowercase.include?('positive') 
+    elsif body.downcase.include?('positive') 
       tested_positive
-    elsif body.lowercase.include?('negative') 
+    elsif body.downcase.include?('negative') 
       tested_negative
     end
   end
