@@ -47,8 +47,7 @@ class User < ActiveRecord::Base
   end
 
   def tested_positive
-
-    update_attributes(tested_at: Time.now.utc)
+    Resque.enqueue(TraverseTree, id, Time.now.utc)
   end
 
   def tested_negative
@@ -88,4 +87,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def get_checked_message
+    message = "Someone in your sexual network tested positive for a sexually transmitted disease. Please get tested!
+      Learn more about STDs, local clinics, and more @ gsy-bonk.herokuapp.com/abcdef"
+    Notifier.send_txt(message, phone_number)
+
+  end
 end
