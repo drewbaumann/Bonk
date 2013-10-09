@@ -78,4 +78,14 @@ class User < ActiveRecord::Base
     message = "Thanks for submitting your sexual partner. If you are ever diagnosed with a disease they will be anonymously notified."
     Notifier.send_txt(message, phone_number)
   end
+
+  def traverse_sexual_partner_tree(current_test_datetime)
+    sexual_partners.each do |partner|
+      if tested_at.nil? or tested_at < current_test_datetime
+        partner.get_checked_message
+        partner.traverse_sexual_partner_tree(current_test_datetime)
+      end
+    end
+  end
+
 end
