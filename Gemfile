@@ -11,6 +11,8 @@ gem 'unicorn'
 gem 'resque'
 gem 'redis'
 gem 'figaro'
+gem 'chronic'
+gem 'phone'
 
 # Gems used only for assets and not required
 # in production environments by default.
