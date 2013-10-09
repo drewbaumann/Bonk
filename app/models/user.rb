@@ -43,6 +43,7 @@ class User < ActiveRecord::Base
 
   def create_sexual_partner(phone_number)
     sexual_partners << User.find_or_create_by_phone_number(phone_number)    
+    sexual_partner_submitted_confirmation_message
   end
 
   def tested_positive
@@ -71,5 +72,10 @@ class User < ActiveRecord::Base
     elsif body.downcase.include?('negative') 
       tested_negative
     end
+  end
+
+  def sexual_partner_submitted_confirmation_message
+    message = "Thanks for submitting your sexual partner. If you are ever diagnosed with a disease they will be anonymously notified."
+    Notifier.send_txt(message, phone_number)
   end
 end
