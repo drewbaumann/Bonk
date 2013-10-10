@@ -47,6 +47,7 @@ class User < ActiveRecord::Base
   end
 
   def tested_positive
+    tested_positive_confirmation_message
     Resque.enqueue(TraverseTree, id, Time.now.utc)
   end
 
@@ -65,7 +66,7 @@ class User < ActiveRecord::Base
       date_response(body)
 
     elsif phone_num =~ /^[-+]?[0-9]+$/
-      partners_phone_number = Phoner::Phone.parse(body)
+      partners_phone_number = Phoner::Phone.parse(phone_num)
       create_sexual_partner(partners_phone_number.to_s)
     elsif body.downcase.include?('positive') 
       tested_positive
