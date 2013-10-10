@@ -91,7 +91,7 @@ class User < ActiveRecord::Base
 
   def get_checked_message
     message = "Someone in your sexual network tested positive for a sexually transmitted disease. Please get tested!
-      Learn more about STDs, local clinics, and more @ gsy-bonk.herokuapp.com/abcdef"
+      Learn more about STDs, local clinics, and more @ STFree.herokuapp.com/personal"
     Notifier.send_txt(message, phone_number)
 
   end
