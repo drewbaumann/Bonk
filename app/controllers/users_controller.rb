@@ -83,6 +83,6 @@ class UsersController < ApplicationController
   end
 
   def landing
-
+    @user = User.new
   end
 end
