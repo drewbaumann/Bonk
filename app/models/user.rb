@@ -64,6 +64,7 @@ class User < ActiveRecord::Base
     phone_num = body.scan(/[0-9]/).join
     if tested_at.nil?
       date_response(body)
+      return
 
     elsif phone_num =~ /^[-+]?[0-9]+$/
       partners_phone_number = Phoner::Phone.parse(phone_num)
