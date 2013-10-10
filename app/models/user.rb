@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
            :foreign_key => :user_id
 
   def welcome_text
-    body ='Welcome to Bonk! When is the last time you were tested for STDs? Please respond with a date or "never" if you have never been tested.'
+    body ='Welcome to STFree! When is the last time you were tested for STDs? Please respond with a date or "never" if you have never been tested.'
     Notifier.send_txt(body, phone_number)
   end
 
