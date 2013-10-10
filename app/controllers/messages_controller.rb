@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
     user = User.find_by_phone_number(full_phone)
     body = params[:Body]
     user.respond_to_incoming_message(body)
-    render status :ok
+    render status: :ok
   end
 
 end
