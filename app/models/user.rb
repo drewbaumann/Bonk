@@ -60,10 +60,11 @@ class User < ActiveRecord::Base
   end
 
   def respond_to_incoming_message(body)
+    phone_num = body.scan(/[0-9]/).join
     if tested_at.nil?
       date_response(body)
 
-    elsif body =~ /^[-+]?[0-9]+$/
+    elsif phone_num =~ /^[-+]?[0-9]+$/
       partners_phone_number = Phoner::Phone.parse(body)
       create_sexual_partner(partners_phone_number.to_s)
     elsif body.downcase.include?('positive') 
